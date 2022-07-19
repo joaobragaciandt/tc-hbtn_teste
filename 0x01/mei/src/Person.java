@@ -4,13 +4,13 @@ public class Person {
 
     private String name;
     private String surname;
-    private Date birthDate;
+    private int birthDate;
     private boolean anotherCompanyOwner;
     private boolean pensioner;
     private boolean publicServer;
     private float salary;
 
-    public Person(String name, String surname, Date birthDate, boolean anotherCompanyOwner, boolean pensioner, boolean publicServer) {
+    public Person(String name, String surname, int birthDate, boolean anotherCompanyOwner, boolean pensioner, boolean publicServer) {
         this.name = name;
         this.surname = surname;
         this.birthDate = birthDate;
@@ -48,7 +48,7 @@ public class Person {
     }
 
     public boolean isMEI() {
-        if(calculateYearlySalary() < 130000 && birthDate.getYear() >= 18 && !anotherCompanyOwner && !pensioner && !publicServer) {
+        if(calculateYearlySalary() < 130000 && birthDate >= 18 && !anotherCompanyOwner && !pensioner && !publicServer) {
             return true;
         }
         return false;

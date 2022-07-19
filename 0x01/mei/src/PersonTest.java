@@ -10,8 +10,7 @@ public class PersonTest {
 
     @BeforeEach
     public void setup() {
-        Date nascimento = new Date(2000);
-        person = new Person("Paul","McCartney",nascimento,true,true,true);
+        person = new Person("Paul","McCartney",2000,true,true,true);
     }
 
     @Test
