@@ -7,11 +7,13 @@ public class Person {
     private String password;
 
 
-    public Person() {
+    public Person(String user, String password) {
+        this.user = user;
+        this.password = password;
     }
 
     public boolean checkUser() {
-        Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");
+        Pattern pattern = Pattern.compile("[^a-zA-Z\\d]");
         Matcher matcher = pattern.matcher(user);
         if(user.length() >= 8 && !matcher.find()) {
             return true;
@@ -21,8 +23,8 @@ public class Person {
 
     public boolean checkPassword() {
         Pattern uppercase = Pattern.compile("[A-Z]");
-        Pattern hasNumber = Pattern.compile("[0-9]");
-        Pattern specialCharacters = Pattern.compile("[^a-zA-Z0-9]");
+        Pattern hasNumber = Pattern.compile("\\d");
+        Pattern specialCharacters = Pattern.compile("[^a-zA-Z\\d]");
         Matcher matcherUppercase = uppercase.matcher(user);
         Matcher matcherHasNumber = hasNumber.matcher(user);
         Matcher matcherSpecialCharacters = specialCharacters.matcher(user);

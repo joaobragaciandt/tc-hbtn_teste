@@ -10,7 +10,7 @@ public class PersonTest {
 
     @BeforeAll
     public static void setup() {
-        person = new Person();
+        person = new Person("userTeste","passTeste");
     }
 
     @ParameterizedTest
@@ -25,6 +25,12 @@ public class PersonTest {
     public void check_user_not_valid(String string) {
         person.setUser(string);
         Assertions.assertFalse(person.checkUser());
+    }
+    @ParameterizedTest
+    @ValueSource(strings = { "123456789", "#$%1234" })
+    public void does_not_have_letters(String string) {
+        person.setPassword(string);
+        Assertions.assertFalse(person.checkPassword());
     }
 
     @ParameterizedTest
